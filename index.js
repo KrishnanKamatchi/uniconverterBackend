@@ -14,6 +14,34 @@ app.get("/*", (req, res) => {
   res.end();
 });
 
+app.post("/currencyConverter", async (req, res) => {
+  let { baseCountry, targetCountry, amount } = req.body;
+  let apiToken = "17d03cecd71bc2d2a8a14434";
+
+  let url = `https://v6.exchangerate-api.com/v6/${apiToken}/pair/${baseCountry}/${targetCountry}/${amount}`;
+
+  let options = {
+    method: "GET",
+    headers: {
+      Accept: "*/*",
+    },
+  };
+
+  fetch(url, options)
+    .then((res) => res.json())
+    .then((json) => {
+      res.status(200);
+      res.json(json);
+      res.end();
+    })
+    .catch((err) => {
+      if (err) {
+        res.status(400);
+        res.end();
+      }
+    });
+});
+
 app.listen(PORT, (e) => {
   if (e) {
     console.error(e);

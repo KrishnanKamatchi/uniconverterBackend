@@ -21,3 +21,6 @@ app.listen(PORT, (e) => {
   }
   console.log(`Server Up at port ${PORT}`);
 });
+
+// Export the Express API
+module.exports = app;

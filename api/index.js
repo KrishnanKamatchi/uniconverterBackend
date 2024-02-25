@@ -9,7 +9,8 @@ app.use(helmet());
 app.use(express.json());
 
 app.get("/*", (req, res) => {
-  res.write("OOPS This is a service API unit, Please Contact Admin");
+  res.status(200);
+  res.json({ code: 200, msg: "Code is online" });
   res.end();
 });
 

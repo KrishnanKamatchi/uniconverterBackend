@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "Unit Codes not written",
-    "start": "node ./api/index",
-    "watch": "nodemon ./api/index.js"
+    "start": "node index",
+    "watch": "nodemon index.js"
   },
   "keywords": [],
   "homepage": "https://github.com/KrishnanKamatchi/uniconverterBackend.git",

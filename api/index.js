@@ -6,10 +6,9 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(helmet());
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.setHeader("Content-Type", "text/html");
-  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+app.get("/*", (req, res) => {
   res.write("OOPS This is a service API unit, Please Contact Admin");
   res.end();
 });
